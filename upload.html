@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Pictures | Pretey International School</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="School Logo">
+        <h1>PRETEY INTERNATIONAL SCHOOL</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="home page.html">Home</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="upload-container">
+    <form class="upload-form" action="upload.php" method="POST" enctype="multipart/form-data">
+        <h2>Upload School Media</h2>
+        <p style="text-align: center; font-size: 0.9em; color: #666;">Select a photo for the school gallery</p>
+        
+        <label>Choose Image</label>
+        <input type="file" name="image" id="file-input" accept="image/*" required>
+        
+        <img id="image-preview" src="#" alt="Preview">
+
+        <label>Description</label>
+        <input type="text" name="description" placeholder="e.g. Students in the Science Lab" required>
+
+        <button type="submit">Upload to Gallery</button>
+    </form>
+</section>
+
+<script>
+    const fileInput = document.getElementById('file-input');
+    const preview = document.getElementById('image-preview');
+
+    fileInput.onchange = evt => {
+        const [file] = fileInput.files;
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = 'block';
+        }
+    }
+</script>
+
+
+<footer>
+    <p>&copy; 2026 Pretey International School. All Rights Reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
